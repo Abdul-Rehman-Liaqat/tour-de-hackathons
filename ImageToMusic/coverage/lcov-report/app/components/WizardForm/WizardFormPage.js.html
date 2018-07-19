@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/components/WizardForm/WizardFormPage.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">app/components/WizardForm</a> WizardFormPage.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">70% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>21/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/36</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">25% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>2/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">67.86% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>19/28</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, {Fragment} from 'react'
+import {Field, reduxForm} from 'redux-form'
+import { connect } from 'react-redux';
+import validate from './validate'
+import renderField from './renderField'
+import moment from 'moment'
+import { DatePicker, Form, Input, Radio, Select, Checkbox, Button } from "antd";
+&nbsp;
+const FormItem = Form.Item;
+const RadioGroup = Radio.Group;
+const { Option } = Select;
+const { TextArea } = Input;
+&nbsp;
+const formItemLayout = {
+  labelCol: {
+    xs: { span: 24 },
+    sm: { span: 12 }
+  },
+  wrapperCol: {
+    xs: { span: 24 },
+    sm: { span: 14 }
+  }
+};
+&nbsp;
+const tailFormItemLayout = {
+  wrapperCol: {
+    xs: {
+      span: 24,
+      offset: 0
+    },
+    sm: {
+      span: 14,
+      offset: 6
+    }
+  }
+};
+const required = <span class="fstat-no" title="function not covered" >va</span>lue =&gt; {
+<span class="cstat-no" title="statement not covered" >  return (value ? undefined : 'Required')</span>
+}
+const isNumber = <span class="fstat-no" title="function not covered" >va</span>lue =&gt; {
+<span class="cstat-no" title="statement not covered" >  return (!isNaN(value) ? undefined : 'Must be number')</span>
+}
+const makeField = Component =&gt; <span class="fstat-no" title="function not covered" >({</span> input, meta, children, hasFeedback, label, ...rest }) =&gt; {
+  const hasError = <span class="cstat-no" title="statement not covered" >meta.touched &amp;&amp; meta.invalid;</span>
+<span class="cstat-no" title="statement not covered" >  return (</span>
+    &lt;FormItem
+      {...formItemLayout}
+      label={label}
+      validateStatus={hasError ? 'error' : 'success'}
+      hasFeedback={hasFeedback &amp;&amp; hasError}
+      help={hasError &amp;&amp; meta.error}
+    &gt;
+      &lt;Component {...input} {...rest} children={children} /&gt;
+    &lt;/FormItem&gt;
+  );
+};
+const makeDatePickerField = Component =&gt; <span class="fstat-no" title="function not covered" >({</span> input, meta, children, hasFeedback, label, ...rest }) =&gt; {
+  const hasError = <span class="cstat-no" title="statement not covered" >meta.touched &amp;&amp; meta.invalid;</span>
+<span class="cstat-no" title="statement not covered" >  return (</span>
+    &lt;FormItem
+      {...formItemLayout}
+      label={label}
+      validateStatus={hasError ? 'error' : 'success'}
+      hasFeedback={hasFeedback &amp;&amp; hasError}
+      help={hasError &amp;&amp; meta.error}
+    &gt;
+      &lt;Component {...rest} value={input.value !== "" ? moment(input.value, 'YYYY-MM-DD') : input.value} format='YYYY-MM-DD' onChange={<span class="fstat-no" title="function not covered" >(d</span>ate, dateString) =&gt; <span class="cstat-no" title="statement not covered" >input.onChange(dateString)}</span> children={children} /&gt;
+    &lt;/FormItem&gt;
+  );
+};
+const AInput = makeField(Input);
+const ARadioGroup = makeField(RadioGroup);
+const ASelect = makeField(Select);
+const ACheckbox = makeField(Checkbox);
+const ATextarea = makeField(TextArea);
+const ADatePicker = makeDatePickerField(DatePicker);
+&nbsp;
+let WizardFormPage = <span class="fstat-no" title="function not covered" >pr</span>ops =&gt; {
+  const {handleSubmit,  pristine, reset, submitting, onSubmit, previousPage, nextPage, question, finalSubmit} = <span class="cstat-no" title="statement not covered" >props</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  return (</span>
+      &lt;form onSubmit={handleSubmit}&gt;
+        {question[0].type == 'string' &amp;&amp;
+          &lt;Field
+            name={question[0].id}
+            component={AInput}
+            label={question[0].text}
+            validate={required}
+            hasFeedback
+          /&gt;
+        }
+        {question[0].type == 'date' &amp;&amp;
+          &lt;Field
+            name={question[0].id}
+            component={ADatePicker}
+            label={question[0].text}
+            validate={required}
+            hasFeedback
+          /&gt;
+        }
+        {question[0].type == 'number' &amp;&amp;
+          &lt;Field
+            name={question[0].id}
+            component={AInput}
+            label={question[0].text}
+            validate={isNumber}
+            hasFeedback
+          /&gt;
+        }
+        {question[0].type == 'boolean' &amp;&amp;
+          &lt;Field
+            name={question[0].id}
+            component={ARadioGroup}
+            label={question[0].text}
+            validate={required}
+            hasFeedback
+          &gt;
+            &lt;Radio value="yes"&gt;Yes&lt;/Radio&gt;
+            &lt;Radio value="no"&gt;No&lt;/Radio&gt;
+          &lt;/Field&gt;
+        }
+        &lt;div&gt;
+          {previousPage &amp;&amp;
+            &lt;Button htmlType="button" className="previous" onClick={previousPage}&gt;
+              Previous
+            &lt;/Button&gt;
+          }
+          { question[0].next !== null &amp;&amp;
+            &lt;Button htmlType="submit" className="next"&gt;Next&lt;/Button&gt;
+          }
+          { question[0].next === null &amp;&amp;
+            &lt;Button htmlType="submit" onClick={finalSubmit} className="submit"&gt;Submit&lt;/Button&gt;
+          }
+        &lt;/div&gt;
+      &lt;/form&gt;
+  )
+}
+&nbsp;
+WizardFormPage = reduxForm({
+  form: 'wizard', // &lt;------ same form name
+  destroyOnUnmount: false, // &lt;------ preserve form data
+  forceUnregisterOnUnmount: true, // &lt;------ unregister fields on unmount
+})(WizardFormPage)
+&nbsp;
+WizardFormPage = connect()(WizardFormPage);
+export default WizardFormPage
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Apr 24 2018 23:48:20 GMT+0200 (CEST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+JavaScript: true
+
+exclude_paths:
+- es/**/*
+- lib/**/*
