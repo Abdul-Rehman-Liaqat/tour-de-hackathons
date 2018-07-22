@@ -96,12 +96,12 @@ lat_long_list = [[40.846951, -73.933641],
 
 for location in lat_long_list:
     content.append([])
-    for i in range(10,15):
+    for i in range(15,20):
         start_date = '2018-07-{}T00:00:00'.format(i) 
         end_date = '2018-07-{}T00:00:00'.format(i+1) 
         req_variable = r"https://api.breezometer.com/baqi/?end_datetime={}&interval=1&key=de4fef0f7fb349f29f3f21c275018069&lang=en&lat={}&lon={}&start_datetime={}".format(end_date,location[0],location[1],start_date)
         content[-1].append(requests.get(req_variable).json())
-        with open('traffic_data_pollution_3.obj','wb') as f:
+        with open('traffic_data_pollution_4.obj','wb') as f:
             pickle.dump(content,f)
         print(len(content[-1][-1]),i,location)
 
@@ -121,9 +121,10 @@ pollution_data = pd.DataFrame(columns=pollution_data_columns)
 
 
 for location,con in zip(lat_long_list,content):
-        for i,data in zip(range(1,20),con):
-            start_date = '2018-07-{}T00:00:00'.format(i) 
-            end_date = '2018-07-{}T00:00:00'.format(i+1)
+    for i,data in zip(range(1,20),con):
+        start_date = '2018-07-{}T00:00:00'.format(i) 
+        end_date = '2018-07-{}T00:00:00'.format(i+1)
+        if(len(data)>2):
             for hour_data in data:
                 datetime = hour_data['datetime']
                 lat = location[0]
@@ -136,4 +137,4 @@ for location,con in zip(lat_long_list,content):
                 so2 = hour_data['pollutants']['so2']['concentration']
                 pollution_data.loc[len(pollution_data)] = [datetime,lat,long,co,no2,o3,pm10,pm25,so2]           
                 
-pollution_data.to_csv('pollution_and_traffic_data10_14.csv',index = False)
+pollution_data.to_csv('pollution_and_traffic_data15_19.csv',index = False)

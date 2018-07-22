@@ -25,7 +25,7 @@ app.layout = html.Div(children = [
     ),
     dcc.Interval(
         id='interval-component',
-        interval=1*1000  # in milliseconds
+        interval=1*10000  # in milliseconds
     )
 ])
 
@@ -44,14 +44,7 @@ def update_graph():
     pred = model.predict(results[features_speed].values)
     return {
         'data': [
-                go.Scatter(
-                    x=x_axis,
-                    y=results.pm25,
-                    xaxis = 'x2',
-                    yaxis = 'y2',
-                    name = 'Particulate Matter (pm25)'
-                ),
-                go.Scatter(
+            go.Scatter(
                     x=x_axis,
                     y=results.speed,
                     name = 'Actual Speed'
@@ -60,28 +53,77 @@ def update_graph():
                     x=x_axis,
                     y=pred,
                     name = 'Predicted Speed'
+                ),
+                go.Scatter(
+                    x=x_axis,
+                    y=results.no2,
+                    xaxis='x3',
+                    yaxis='y3',
+                    name = 'NOx (NO2)'
+                ),
+                go.Scatter(
+                    x=x_axis,
+                    y=results.pm25,
+                    xaxis='x2',
+                    yaxis='y2',
+                    name = 'pm2.5'
+                ),
+                go.Scatter(
+                    x=x_axis,
+                    y=results.pm10,
+                    xaxis='x4',
+                    yaxis='y4',
+                    name = 'pm10'
                 )
                   
         ],
-        'layout': go.Layout(#title = 'Actual and Predicted Traffic Speed in New York',
+        'layout': go.Layout(title = 'Predicting traffic speed from Air Quality in New York',
 #              xaxis = dict(title = 'Time (s)'),
 #              yaxis = dict(title = 'Speed (km/h)'),
-                  xaxis=dict(
-                        domain=[0.55, 1]
-                    ),
-                    yaxis=dict(
-                        domain=[0, 0.45],
-                        anchor = 'x2'
-                    ),
-                    xaxis2=dict(
+                xaxis=dict(
                         domain=[0, 0.45]
-                    ),
-                    yaxis2=dict(
-                        domain=[0, 0.45]
-                    )
+                        ),
+                        yaxis=dict(
+                            domain=[0.55, 1],
+                            title = 'Speed (km/h)'
+                        ),
+                        xaxis2=dict(
+                            domain=[0.55, 1]
+                        ),
+                        xaxis3=dict(
+                            domain=[0, 0.45],
+                            anchor='y3',
+                        title = 'Time (s)'
+                        ),
+                        xaxis4=dict(
+                            domain=[0.55, 1],
+                            anchor='y4',
+                            title = 'Time (s)'
+                        ),
+                        yaxis2=dict(
+                            domain=[0.55, 1],
+                            anchor='x2',
+                            title = 'pm25 (uGram/m3)'
+                        ),
+                        yaxis3=dict(
+                            domain=[0, 0.45],
+                            title = 'NO2 (ppb)'
+                        ),
+                        yaxis4=dict(
+                            domain=[0, 0.45],
+                            anchor='x4',
+                            title = 'pm10 (uGram/m3)'
+                        )
+
               )
         
     }
+
+
+
+
+
+
 
 
 if __name__ == '__main__':
