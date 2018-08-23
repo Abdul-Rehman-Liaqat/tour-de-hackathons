@@ -39,3 +39,6 @@ def one_deal(api_key,deal_id):
     url = "https://api.discountapi.com/v2/deals/{}".format(deal_id)    
     response = requests.request("GET", url)
     return json.loads(response.text)
+
+
+one_deal(api_key,deal_id)
