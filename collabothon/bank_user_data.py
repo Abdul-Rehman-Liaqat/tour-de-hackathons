@@ -48,23 +48,33 @@ def get_response(url,keyid):
     return json.loads(response.text)
     
 
-def create_account(keyid,iban,account_id):
-    url = "https://api-sandbox.commerzbank.com/accounts-api/v1-s/accounts/28447899"
-    payload = "{\n\"accountId\": \"{}\",\n\"currency\": \"euro\",\n\"iban\": \"{}\",\n\"accountType\": \"secondary\",\n\"balances\": [\n{\n\"closingBooked\": {\n\"amount\": {\n\"currency\": \"euro\",\n\"amount\": 100.00\n},\n\"date\": \"2018-08-24\",\n\"lastActionDateTime\": \"2018-08-24\"\n}\n}\n]\n}".format(account_id,iban)
+def create_account(keyid):
     headers = {
-        'content-type': "application/json",
-        'keyid': keyid
-        }
-    response = requests.request("POST", url, data=payload, headers=headers)
-    return json.loads(response.text)
+        'content-type': 'application/json',
+        'keyid': keyid}
+    #account_id = str(28447991)
+    data = '{\n"accountId": \"11111120\",\
+            \n"currency": "euro",\
+            \n"iban": "DE123344",\
+            \n"accountType": "secondary",\
+            \n"balances": [\n{\n"closingBooked": {\n"amount": {\n"currency": "euro",\
+            \n"amount": 1000.00\n},\
+            \n"date": "2018-08-24",\
+            \n"lastActionDateTime": "2018-08-24"\n}\n}\n]\n}'
+    account_id = data.split('accountId')[1].split(':')[1].split(',')[0].split('\"')[1]
+    response = requests.post('https://api-sandbox.commerzbank.com/accounts-api/v1-s/accounts/{}'.format(account_id), headers=headers, data=data)    
+    return response.text,int(account_id)
 
 
 
 
-user_info = get_user_info(firstName,keyid) 
-user_account = get_user_accounts(int(user_info[0]['personId']),keyid)['agreements'][0]['accountId']
-user_trans_his = get_user_trans_data(user_account,keyid)
-iban = 'DE987654321'
-account_id = 28447999
 
+
+#user_info = get_user_info(firstName,keyid) 
+#user_account = get_user_accounts(int(user_info[0]['personId']),keyid)['agreements'][0]['accountId']
+#user_trans_his = get_user_trans_data(user_account,keyid)
+text,account_id  = create_account(keyid)
+if(text == 'Created'):
+    data = get_user_trans_data(account_id,keyid)
+print(data)
 # resposne.text to json or dictionary
