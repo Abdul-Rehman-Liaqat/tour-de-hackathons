@@ -8,6 +8,8 @@ Created on Thu Aug 23 09:36:06 2018
 
 import requests
 import json
+from flask import Flask, request, jsonify
+
 
 api_key = 'tUveOAJW'
 deal_id = '120035'
@@ -41,4 +43,21 @@ def one_deal(api_key,deal_id):
     return json.loads(response.text)
 
 
-one_deal(api_key,deal_id)
+app = Flask(__name__)
+@app.route('/getDeal', methods = ['GET', 'POST'])
+def getDeal():
+    deal_id = '120035'
+    url = "https://api.discountapi.com/v2/deals/{}".format(deal_id)    
+    response = requests.request("GET", url)
+    final_dict = json.loads(response.text)
+    data = {}
+    data['Name'] = final_dict['deal']['merchant']['name']
+    data['Discount'] = final_dict['deal']['discount_amount']
+    data['Original_price'] = final_dict['deal']['value']
+    data['Discounted_price'] = final_dict['deal']['price']
+    return jsonify(data)
+
+
+    
+if __name__ == '__main__':
+      app.run(host='0.0.0.0', port=3333,debug=True)
